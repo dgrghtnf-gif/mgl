@@ -82,6 +82,7 @@ class MainActivity : AppCompatActivity() {
     private val categories = ArrayList<Category>()
     private val sidebarRows = HashMap<String, View>()
     private lateinit var gridAdapter: FileGridAdapter
+    private lateinit var thumbnails: ThumbnailLoader
 
     private lateinit var currentCategory: Category
     private lateinit var currentDir: File
@@ -164,6 +165,7 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         mainHandler.removeCallbacks(searchRunnable)
         executor.shutdown()
+        if (::thumbnails.isInitialized) thumbnails.shutdown()
         super.onDestroy()
     }
 
@@ -361,7 +363,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupGrid() {
+        thumbnails = ThumbnailLoader()
         gridAdapter = FileGridAdapter(
+            thumbnails = thumbnails,
             onClick = { item -> openItem(item) },
             onLongClick = { item -> toggleSelection(item) },
             onToggle = { item -> toggleSelection(item) }

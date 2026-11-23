@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Translucent dark circle with a white play triangle, drawn over a video thumbnail. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#8C000000" />
+            <stroke
+                android:width="1.5dp"
+                android:color="#B3FFFFFF" />
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/ic_play_triangle"
+        android:bottom="11dp"
+        android:left="13dp"
+        android:right="10dp"
+        android:top="11dp" />
+</layer-list>

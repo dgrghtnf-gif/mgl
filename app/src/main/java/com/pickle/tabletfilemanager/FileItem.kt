@@ -35,6 +35,10 @@ object FileKinds {
         setOf("mp4", "mkv", "avi", "mov", "webm", "3gp", "m4v", "ts", "flv", "wmv")
     private val imageExts =
         setOf("jpg", "jpeg", "png", "gif", "webp", "bmp", "heic", "heif", "svg")
+
+    /** Images a bitmap preview can actually be decoded from (`svg` is vector, so it is left out). */
+    private val thumbnailImageExts =
+        setOf("jpg", "jpeg", "png", "gif", "webp", "bmp", "heic", "heif")
     private val audioExts =
         setOf("mp3", "wav", "m4a", "flac", "ogg", "aac", "opus")
     private val docExts =
@@ -91,6 +95,14 @@ object FileKinds {
             docExts.contains(ext) || codeExts.contains(ext) -> R.drawable.ic_win_doc
             else -> R.drawable.ic_win_file
         }
+    }
+
+    /** Whether a card can show a real thumbnail, and of which kind. */
+    fun thumbKindOf(item: FileItem): ThumbKind = when {
+        item.isDir -> ThumbKind.NONE
+        thumbnailImageExts.contains(item.extension) -> ThumbKind.IMAGE
+        videoExts.contains(item.extension) -> ThumbKind.VIDEO
+        else -> ThumbKind.NONE
     }
 
     fun kindNameOf(item: FileItem): String {

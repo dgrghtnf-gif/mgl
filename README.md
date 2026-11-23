@@ -6,13 +6,16 @@
 
 - Kotlin, minSdk 26 / targetSdk 34 / compileSdk 34
 - 다크 슬레이트 테마 (`#0B1120` 배경, `#111827` 패널, `#3B82F6` 포인트)
-- 현재 버전 **1.1.0** (`versionCode 2`) — 1.0.0 위에 그대로 설치(업데이트)됩니다.
+- 현재 버전 **1.2.0** (`versionCode 3`) — 1.1.0 위에 그대로 설치(업데이트)됩니다.
+
+![썸네일 미리보기](docs/preview-v1.2.0.png)
 
 ## 주요 기능
 
 | 기능 | 설명 |
 | --- | --- |
 | 아이콘 | Windows 탐색기 스타일 벡터 아이콘(`ic_win_*`): 노란 폴더, 동영상·사진·PDF·문서·압축(zip)·APK·웹·음악·기본 파일, 사이드바는 드라이브·다운로드 화살표·휴지통 |
+| 썸네일 (1.2.0) | 사진(jpg·jpeg·png·webp·gif·bmp·heic)과 동영상(mp4·mkv·avi·mov·webm·3gp 등) 카드는 실제 썸네일을 둥근 모서리로 잘라 표시. 동영상은 중앙에 반투명 재생 버튼. 디코딩은 백그라운드 4스레드 + `LruCache`(경로:수정시각 키) 로 처리해 스크롤이 끊기지 않고, 실패·로딩 중에는 기존 타입 아이콘을 그대로 보여줍니다 |
 | 확장자 배지 | 카드마다 큰 아이콘 옆에 작은 확장자 알약(PDF·JPG·ZIP 등) 표시 |
 | 저장소 권한 | Android 11+ 는 `MANAGE_EXTERNAL_STORAGE`(모든 파일 액세스) 설정 화면으로 안내, Android 8~10 은 런타임 저장소 권한 요청 |
 | 탐색 | 실제 폴더 탐색, 상단 경로(빵) 표시, 뒤로 가기로 상위 폴더 이동 |
@@ -39,7 +42,8 @@
 │       ├── AndroidManifest.xml
 │       ├── java/com/pickle/tabletfilemanager/
 │       │   ├── MainActivity.kt         # 화면·권한·탐색·선택·파일 작업
-│       │   ├── FileGridAdapter.kt      # 큰 카드 그리드 어댑터
+│       │   ├── FileGridAdapter.kt      # 큰 카드 그리드 어댑터 (썸네일 바인딩·재활용 가드)
+│       │   ├── ThumbnailLoader.kt      # 사진·동영상 썸네일 디코딩(4스레드) + LruCache
 │       │   ├── FileItem.kt             # 모델 · 정렬 모드 · 배지 색/라벨
 │       │   └── FileOps.kt             # 목록·검색·스캔·복사·이동·MIME 유틸
 │       └── res/

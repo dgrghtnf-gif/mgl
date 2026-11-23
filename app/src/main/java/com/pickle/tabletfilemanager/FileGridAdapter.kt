@@ -1,5 +1,6 @@
 package com.pickle.tabletfilemanager
 
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +12,13 @@ import androidx.recyclerview.widget.RecyclerView
 /**
  * Grid of large file cards. Selection state lives here and is read back by the activity.
  *
- * Each card shows a Windows Explorer style vector icon, the file name, a small extension
- * pill and a meta line, so the type is recognisable at a glance even on a large tablet.
+ * Photos and videos show a real thumbnail in the card's preview area (rounded corners,
+ * centre-crop) once [ThumbnailLoader] has decoded it; videos also get a translucent play
+ * badge. Everything else keeps its Windows Explorer style vector icon. While a preview is
+ * loading, or when decoding fails, the type icon stays visible as the placeholder.
  */
 class FileGridAdapter(
+    private val thumbnails: ThumbnailLoader,
     private val onClick: (FileItem) -> Unit,
     private val onLongClick: (FileItem) -> Unit,
     private val onToggle: (FileItem) -> Unit
@@ -54,8 +58,6 @@ class FileGridAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = items[position]
 
-        holder.icon.setImageResource(FileKinds.iconResOf(item))
-
         val extensionLabel = FileKinds.labelOf(item)
         if (item.isDir || extensionLabel == "FILE") {
             holder.pill.visibility = View.GONE
@@ -67,6 +69,8 @@ class FileGridAdapter(
 
         holder.name.text = item.name
         holder.meta.text = metaText(item)
+
+        bindPreview(holder, item)
 
         val isSelected = selected.contains(item.path)
         holder.card.isSelected = isSelected
@@ -83,6 +87,43 @@ class FileGridAdapter(
         holder.check.setOnClickListener { onToggle(item) }
     }
 
+    /**
+     * Puts the type icon, a cached thumbnail or a queued decode into the preview area.
+     * The holder is tagged with the file's cache key so a decode that finishes after the
+     * card was recycled is dropped instead of landing on the wrong file.
+     */
+    private fun bindPreview(holder: ItemViewHolder, item: FileItem) {
+        val kind = FileKinds.thumbKindOf(item)
+        val key = thumbnails.cacheKey(item.file)
+        holder.thumb.tag = key
+
+        holder.icon.setImageResource(FileKinds.iconResOf(item))
+        holder.icon.visibility = View.VISIBLE
+        holder.thumb.setImageDrawable(null)
+        holder.thumb.visibility = View.GONE
+        holder.playBadge.visibility = View.GONE
+
+        if (kind == ThumbKind.NONE) return
+
+        val cached = thumbnails.cached(item.file)
+        if (cached != null) {
+            showThumbnail(holder, cached, kind)
+            return
+        }
+        thumbnails.load(item.file, kind) { loadedKey, bitmap ->
+            if (loadedKey == holder.thumb.tag && bitmap != null) {
+                showThumbnail(holder, bitmap, kind)
+            }
+        }
+    }
+
+    private fun showThumbnail(holder: ItemViewHolder, bitmap: Bitmap, kind: ThumbKind) {
+        holder.thumb.setImageBitmap(bitmap)
+        holder.thumb.visibility = View.VISIBLE
+        holder.icon.visibility = View.GONE
+        holder.playBadge.visibility = if (kind == ThumbKind.VIDEO) View.VISIBLE else View.GONE
+    }
+
     override fun getItemCount(): Int = items.size
 
     private fun metaText(item: FileItem): String {
@@ -96,6 +137,8 @@ class FileGridAdapter(
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val card: View = view.findViewById(R.id.cardRoot)
         val icon: ImageView = view.findViewById(R.id.fileIcon)
+        val thumb: ImageView = view.findViewById(R.id.thumbImage)
+        val playBadge: ImageView = view.findViewById(R.id.playBadge)
         val pill: TextView = view.findViewById(R.id.extPill)
         val name: TextView = view.findViewById(R.id.fileName)
         val meta: TextView = view.findViewById(R.id.fileMeta)
