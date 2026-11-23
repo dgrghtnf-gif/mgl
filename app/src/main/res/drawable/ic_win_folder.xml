@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Windows File Explorer style manila folder: raised tab + back plate + lighter front cover. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <!-- folder tab -->
+    <path
+        android:pathData="M6.5,9.5 H27.5 Q30,9.5 30,12 V16 H4 V12 Q4,9.5 6.5,9.5 Z"
+        android:fillColor="#DE9A33" />
+
+    <!-- back plate -->
+    <path android:pathData="M8.5,13.5 H56 Q60.5,13.5 60.5,18 V45.5 Q60.5,50 56,50 H8.5 Q4,50 4,45.5 V18 Q4,13.5 8.5,13.5 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="32"
+                android:startY="13.5"
+                android:endX="32"
+                android:endY="50">
+                <item android:offset="0" android:color="#F7C25C" />
+                <item android:offset="1" android:color="#E39F35" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- front cover -->
+    <path android:pathData="M8.5,22.5 H56 Q60.5,22.5 60.5,27 V45.5 Q60.5,50 56,50 H8.5 Q4,50 4,45.5 V27 Q4,22.5 8.5,22.5 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="32"
+                android:startY="22.5"
+                android:endX="32"
+                android:endY="50">
+                <item android:offset="0" android:color="#FFD877" />
+                <item android:offset="1" android:color="#F2AC3E" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- top edge highlight -->
+    <path
+        android:pathData="M8.5,22.5 H56 Q60.5,22.5 60.5,27 V28.4 H4 V27 Q4,22.5 8.5,22.5 Z"
+        android:fillColor="#3DFFFFFF" />
+</vector>

@@ -6,7 +6,6 @@ import android.content.ClipData
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
-import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -18,6 +17,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         val id: String,
         val title: String,
         val color: Int,
+        val iconRes: Int,
         val exts: Set<String>?,
         val flat: Boolean,
         val isTrash: Boolean,
@@ -241,6 +242,7 @@ class MainActivity : AppCompatActivity() {
                 id = "internal",
                 title = "내부 저장소",
                 color = 0xFF3B82F6.toInt(),
+                iconRes = R.drawable.ic_win_drive,
                 exts = null,
                 flat = false,
                 isTrash = false,
@@ -252,6 +254,7 @@ class MainActivity : AppCompatActivity() {
                 id = "downloads",
                 title = "다운로드",
                 color = 0xFF10B981.toInt(),
+                iconRes = R.drawable.ic_win_download,
                 exts = null,
                 flat = false,
                 isTrash = false,
@@ -263,6 +266,7 @@ class MainActivity : AppCompatActivity() {
                 id = "videos",
                 title = "동영상",
                 color = 0xFF8B5CF6.toInt(),
+                iconRes = R.drawable.ic_win_video,
                 exts = FileKinds.videoExtensions,
                 flat = true,
                 isTrash = false,
@@ -274,6 +278,7 @@ class MainActivity : AppCompatActivity() {
                 id = "images",
                 title = "사진 / 이미지",
                 color = 0xFFEC4899.toInt(),
+                iconRes = R.drawable.ic_win_image,
                 exts = FileKinds.imageExtensions,
                 flat = true,
                 isTrash = false,
@@ -285,6 +290,7 @@ class MainActivity : AppCompatActivity() {
                 id = "documents",
                 title = "문서 / PDF",
                 color = 0xFFF59E0B.toInt(),
+                iconRes = R.drawable.ic_win_doc,
                 exts = FileKinds.documentExtensions,
                 flat = true,
                 isTrash = false,
@@ -296,6 +302,7 @@ class MainActivity : AppCompatActivity() {
                 id = "apk",
                 title = "설치 파일 (APK)",
                 color = 0xFF06B6D4.toInt(),
+                iconRes = R.drawable.ic_win_apk,
                 exts = FileKinds.apkExtensions,
                 flat = true,
                 isTrash = false,
@@ -307,6 +314,7 @@ class MainActivity : AppCompatActivity() {
                 id = "trash",
                 title = "휴지통",
                 color = 0xFF64748B.toInt(),
+                iconRes = R.drawable.ic_win_trash,
                 exts = null,
                 flat = false,
                 isTrash = true,
@@ -322,10 +330,10 @@ class MainActivity : AppCompatActivity() {
             val row = layoutInflater.inflate(R.layout.layout_sidebar_item, sidebarList, false)
             val name = row.findViewById<TextView>(R.id.catName)
             val meta = row.findViewById<TextView>(R.id.catMeta)
-            val dot = row.findViewById<View>(R.id.catDot)
+            val icon = row.findViewById<ImageView>(R.id.catIcon)
             name.text = cat.title
             meta.text = cat.subtitle
-            dot.background = dotDrawable(cat.color)
+            icon.setImageResource(cat.iconRes)
             row.setOnClickListener { selectCategory(cat) }
             sidebarList.addView(row)
             sidebarRows[cat.id] = row
@@ -386,15 +394,6 @@ class MainActivity : AppCompatActivity() {
         val available = widthDp - sidebarDp - 40f
         val columns = maxOf(2, (available / 215f).toInt())
         (fileGrid.layoutManager as? GridLayoutManager)?.spanCount = columns
-    }
-
-    private fun dotDrawable(color: Int): GradientDrawable {
-        val density = resources.displayMetrics.density
-        return GradientDrawable().apply {
-            shape = GradientDrawable.RECTANGLE
-            cornerRadius = 6f * density
-            setColor(color)
-        }
     }
 
     // =====================================================================

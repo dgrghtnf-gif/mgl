@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sidebar: downloads (blue arrow badge). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <path android:pathData="M6,32 a26,26 0 1 0 52,0 a26,26 0 1 0 -52,0 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="32"
+                android:startY="6"
+                android:endX="32"
+                android:endY="58">
+                <item android:offset="0" android:color="#63A6FF" />
+                <item android:offset="1" android:color="#1C5FD0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- arrow shaft -->
+    <path
+        android:pathData="M32,15 V37"
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="5"
+        android:strokeLineCap="round" />
+    <!-- arrow head -->
+    <path
+        android:pathData="M22,28.5 L32,39 L42,28.5"
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <!-- tray -->
+    <path
+        android:pathData="M20,47 H44"
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="5"
+        android:strokeLineCap="round" />
+</vector>

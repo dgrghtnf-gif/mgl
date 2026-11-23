@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sidebar: recycle bin. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <!-- handle -->
+    <path
+        android:pathData="M26,10 H38 Q40,10 40,12 V15 H24 V12 Q24,10 26,10 Z"
+        android:fillColor="#A7B9CD" />
+
+    <!-- lid -->
+    <path
+        android:pathData="M12,15 H52 Q54,15 54,17 V20 Q54,22 52,22 H12 Q10,22 10,20 V17 Q10,15 12,15 Z"
+        android:fillColor="#93A7BE" />
+
+    <!-- bin body -->
+    <path android:pathData="M15,23 H49 L45.6,54.2 Q45.3,57 42,57 H22 Q18.7,57 18.4,54.2 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="15"
+                android:startY="23"
+                android:endX="49"
+                android:endY="57">
+                <item android:offset="0" android:color="#CDDBE9" />
+                <item android:offset="1" android:color="#8BA1B9" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- ribs -->
+    <path
+        android:pathData="M25,28 L23.6,51"
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
+        android:strokeAlpha="0.6"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M32,28 L32,51"
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
+        android:strokeAlpha="0.6"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M39,28 L40.4,51"
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
+        android:strokeAlpha="0.6"
+        android:strokeLineCap="round" />
+
+    <!-- body outline -->
+    <path
+        android:pathData="M15,23 H49 L45.6,54.2 Q45.3,57 42,57 H22 Q18.7,57 18.4,54.2 Z"
+        android:fillColor="#00000000"
+        android:strokeColor="#7A8FA6"
+        android:strokeWidth="1.1" />
+</vector>

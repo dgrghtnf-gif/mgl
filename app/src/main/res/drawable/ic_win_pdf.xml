@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PDF sheet: white page, dog-ear and red ribbon badge. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <path android:pathData="M17,5 H41 L53,17 V54 Q53,58 49,58 H17 Q13,58 13,54 V9 Q13,5 17,5 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="33"
+                android:startY="5"
+                android:endX="33"
+                android:endY="58">
+                <item android:offset="0" android:color="#FFFFFF" />
+                <item android:offset="1" android:color="#E9EFF8" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <path
+        android:pathData="M17,5 H41 L53,17 V54 Q53,58 49,58 H17 Q13,58 13,54 V9 Q13,5 17,5 Z"
+        android:fillColor="#00000000"
+        android:strokeColor="#C9D5E4"
+        android:strokeWidth="1.2" />
+
+    <path
+        android:pathData="M41,5 L53,17 L41,17 Z"
+        android:fillColor="#D4DFEC" />
+
+    <!-- text lines on the left -->
+    <path android:pathData="M17,24 H33 V27.2 H17 Z" android:fillColor="#C6D2E2" />
+    <path android:pathData="M17,31 H33 V34.2 H17 Z" android:fillColor="#C6D2E2" />
+    <path android:pathData="M17,45 H33 V48.2 H17 Z" android:fillColor="#C6D2E2" />
+
+    <!-- red PDF ribbon -->
+    <path android:pathData="M38,19 H50 V51 L44,46.2 L38,51 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="38"
+                android:startY="19"
+                android:endX="50"
+                android:endY="51">
+                <item android:offset="0" android:color="#F05A4C" />
+                <item android:offset="1" android:color="#C02A22" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:pathData="M38,19 H50 V21.6 H38 Z" android:fillColor="#40FFFFFF" />
+</vector>

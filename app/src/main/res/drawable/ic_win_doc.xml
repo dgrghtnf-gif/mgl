@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Document sheet with blue header and text lines (DOC / TXT / HWP / XLS ...). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <path android:pathData="M17,5 H41 L53,17 V54 Q53,58 49,58 H17 Q13,58 13,54 V9 Q13,5 17,5 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="33"
+                android:startY="5"
+                android:endX="33"
+                android:endY="58">
+                <item android:offset="0" android:color="#FFFFFF" />
+                <item android:offset="1" android:color="#E8EFF8" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <path
+        android:pathData="M17,5 H41 L53,17 V54 Q53,58 49,58 H17 Q13,58 13,54 V9 Q13,5 17,5 Z"
+        android:fillColor="#00000000"
+        android:strokeColor="#C9D5E4"
+        android:strokeWidth="1.2" />
+
+    <path
+        android:pathData="M41,5 L53,17 L41,17 Z"
+        android:fillColor="#D4DFEC" />
+
+    <!-- blue header bar -->
+    <path
+        android:pathData="M18.5,21 H37.5 Q39,21 39,22.5 V25.5 Q39,27 37.5,27 H18.5 Q17,27 17,25.5 V22.5 Q17,21 18.5,21 Z"
+        android:fillColor="#2F6FD0" />
+
+    <!-- text lines -->
+    <path android:pathData="M17,31 H45 V34.2 H17 Z" android:fillColor="#C2CFE0" />
+    <path android:pathData="M17,38 H45 V41.2 H17 Z" android:fillColor="#C2CFE0" />
+    <path android:pathData="M17,45 H37 V48.2 H17 Z" android:fillColor="#C2CFE0" />
+</vector>

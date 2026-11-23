@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Archive: Windows zipped folder with centre zipper. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <!-- tab -->
+    <path
+        android:pathData="M6.5,9.5 H27.5 Q30,9.5 30,12 V16 H4 V12 Q4,9.5 6.5,9.5 Z"
+        android:fillColor="#DE9A33" />
+
+    <!-- back plate -->
+    <path android:pathData="M8.5,13.5 H56 Q60.5,13.5 60.5,18 V45.5 Q60.5,50 56,50 H8.5 Q4,50 4,45.5 V18 Q4,13.5 8.5,13.5 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="32"
+                android:startY="13.5"
+                android:endX="32"
+                android:endY="50">
+                <item android:offset="0" android:color="#F7C25C" />
+                <item android:offset="1" android:color="#E39F35" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- front cover -->
+    <path android:pathData="M8.5,22.5 H56 Q60.5,22.5 60.5,27 V45.5 Q60.5,50 56,50 H8.5 Q4,50 4,45.5 V27 Q4,22.5 8.5,22.5 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="32"
+                android:startY="22.5"
+                android:endX="32"
+                android:endY="50">
+                <item android:offset="0" android:color="#FFD877" />
+                <item android:offset="1" android:color="#F2AC3E" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- zipper strip, kept inside the front cover -->
+    <path android:pathData="M29.8,28 H34.2 V48.6 H29.8 Z" android:fillColor="#4C5768" />
+
+    <!-- zipper teeth -->
+    <path android:pathData="M30.2,31.4 H33.8 V32.8 H30.2 Z" android:fillColor="#DCE3EE" />
+    <path android:pathData="M30.2,34.8 H33.8 V36.2 H30.2 Z" android:fillColor="#DCE3EE" />
+    <path android:pathData="M30.2,38.2 H33.8 V39.6 H30.2 Z" android:fillColor="#DCE3EE" />
+    <path android:pathData="M30.2,41.6 H33.8 V43 H30.2 Z" android:fillColor="#DCE3EE" />
+    <path android:pathData="M30.2,45 H33.8 V46.4 H30.2 Z" android:fillColor="#DCE3EE" />
+
+    <!-- slider -->
+    <path
+        android:pathData="M28.4,24.2 H35.6 Q37,24.2 37,25.6 V29.4 Q37,30.8 35.6,30.8 H28.4 Q27,30.8 27,29.4 V25.6 Q27,24.2 28.4,24.2 Z"
+        android:fillColor="#B4C0D0" />
+    <path android:pathData="M30.8,30.8 H33.2 V34 H30.8 Z" android:fillColor="#B4C0D0" />
+    <path android:pathData="M29.6,25.6 H34.4 V27.4 H29.6 Z" android:fillColor="#7E8CA0" />
+</vector>

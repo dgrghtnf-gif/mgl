@@ -43,6 +43,8 @@ object FileKinds {
         setOf("zip", "7z", "rar", "tar", "gz", "bz2")
     private val codeExts =
         setOf("html", "htm", "json", "xml", "js", "kt", "java", "py", "css", "md", "sh")
+    private val webExts =
+        setOf("html", "htm", "css", "js", "json", "xml", "md")
 
     fun labelOf(item: FileItem): String {
         if (item.isDir) return "DIR"
@@ -71,6 +73,23 @@ object FileKinds {
             codeExts.contains(ext) -> 0xFF10B981.toInt()
             docExts.contains(ext) -> 0xFF3B82F6.toInt()
             else -> 0xFF64748B.toInt()
+        }
+    }
+
+    /** Windows Explorer style vector icon for a card / sidebar entry. */
+    fun iconResOf(item: FileItem): Int {
+        if (item.isDir) return R.drawable.ic_win_folder
+        val ext = item.extension
+        return when {
+            ext == "pdf" -> R.drawable.ic_win_pdf
+            videoExts.contains(ext) -> R.drawable.ic_win_video
+            imageExts.contains(ext) -> R.drawable.ic_win_image
+            audioExts.contains(ext) -> R.drawable.ic_win_audio
+            ext == "apk" || ext == "apks" || ext == "xapk" -> R.drawable.ic_win_apk
+            archiveExts.contains(ext) -> R.drawable.ic_win_zip
+            webExts.contains(ext) -> R.drawable.ic_win_web
+            docExts.contains(ext) || codeExts.contains(ext) -> R.drawable.ic_win_doc
+            else -> R.drawable.ic_win_file
         }
     }
 

@@ -6,11 +6,14 @@
 
 - Kotlin, minSdk 26 / targetSdk 34 / compileSdk 34
 - 다크 슬레이트 테마 (`#0B1120` 배경, `#111827` 패널, `#3B82F6` 포인트)
+- 현재 버전 **1.1.0** (`versionCode 2`) — 1.0.0 위에 그대로 설치(업데이트)됩니다.
 
 ## 주요 기능
 
 | 기능 | 설명 |
 | --- | --- |
+| 아이콘 | Windows 탐색기 스타일 벡터 아이콘(`ic_win_*`): 노란 폴더, 동영상·사진·PDF·문서·압축(zip)·APK·웹·음악·기본 파일, 사이드바는 드라이브·다운로드 화살표·휴지통 |
+| 확장자 배지 | 카드마다 큰 아이콘 옆에 작은 확장자 알약(PDF·JPG·ZIP 등) 표시 |
 | 저장소 권한 | Android 11+ 는 `MANAGE_EXTERNAL_STORAGE`(모든 파일 액세스) 설정 화면으로 안내, Android 8~10 은 런타임 저장소 권한 요청 |
 | 탐색 | 실제 폴더 탐색, 상단 경로(빵) 표시, 뒤로 가기로 상위 폴더 이동 |
 | 분류 | 내부 저장소·다운로드·휴지통은 폴더 탐색, 동영상·사진·문서·APK는 전체 저장소에서 확장자별 모아 보기 |
@@ -41,7 +44,7 @@
 │       │   └── FileOps.kt             # 목록·검색·스캔·복사·이동·MIME 유틸
 │       └── res/
 │           ├── layout/{activity_main,item_file,layout_sidebar_item,dialog_input}.xml
-│           ├── drawable/*.xml          # 카드/버튼/배지/체크/용량바 배경
+│           ├── drawable/*.xml          # 카드/버튼/배지/체크/용량바 배경 + ic_win_* 아이콘
 │           ├── values/{colors,strings,themes}.xml
 │           ├── xml/file_paths.xml      # FileProvider 경로
 │           └── mipmap-anydpi-v26/ic_launcher*.xml

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Video: media sheet with play badge and film-strip lines. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <path android:pathData="M17,5 H41 L53,17 V54 Q53,58 49,58 H17 Q13,58 13,54 V9 Q13,5 17,5 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="33"
+                android:startY="5"
+                android:endX="33"
+                android:endY="58">
+                <item android:offset="0" android:color="#FFFFFF" />
+                <item android:offset="1" android:color="#E8EFF8" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <path
+        android:pathData="M17,5 H41 L53,17 V54 Q53,58 49,58 H17 Q13,58 13,54 V9 Q13,5 17,5 Z"
+        android:fillColor="#00000000"
+        android:strokeColor="#C9D5E4"
+        android:strokeWidth="1.2" />
+
+    <path
+        android:pathData="M41,5 L53,17 L41,17 Z"
+        android:fillColor="#D4DFEC" />
+
+    <!-- play badge -->
+    <path android:pathData="M21,31 a12,12 0 1 0 24,0 a12,12 0 1 0 -24,0 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="21"
+                android:startY="19"
+                android:endX="45"
+                android:endY="43">
+                <item android:offset="0" android:color="#8A76FF" />
+                <item android:offset="1" android:color="#5A43E0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:pathData="M29.2,25.4 L39.4,31 L29.2,36.6 Z" android:fillColor="#FFFFFF" />
+
+    <!-- film strip accents -->
+    <path
+        android:pathData="M21,48 H33"
+        android:fillColor="#00000000"
+        android:strokeColor="#B9C6D8"
+        android:strokeWidth="2.6"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M38,48 H45"
+        android:fillColor="#00000000"
+        android:strokeColor="#B9C6D8"
+        android:strokeWidth="2.6"
+        android:strokeLineCap="round" />
+</vector>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- APK: installer package box. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <!-- lid -->
+    <path android:pathData="M32,7 L55,18 L32,29 L9,18 Z" android:fillColor="#F1C783" />
+    <!-- left face -->
+    <path android:pathData="M9,18 L32,29 V56 L9,45 Z" android:fillColor="#D9A05A" />
+    <!-- right face -->
+    <path android:pathData="M55,18 L32,29 V56 L55,45 Z" android:fillColor="#BC8043" />
+
+    <!-- tape over the lid -->
+    <path android:pathData="M9,18 L55,18 L48.6,21.2 L32,29 L15.4,21.2 Z" android:fillColor="#F8EAD0" />
+
+    <!-- packing label on the right face -->
+    <path android:pathData="M38,33.4 L50,28.5 V35.2 L38,40.2 Z" android:fillColor="#F8EAD0" />
+    <path android:pathData="M40,33.6 L48,30.2 V31.6 L40,35 Z" android:fillColor="#C9A876" />
+    <path android:pathData="M40,36.2 L45.6,33.9 V35.3 L40,37.6 Z" android:fillColor="#C9A876" />
+
+    <!-- lid edge highlight -->
+    <path
+        android:pathData="M32,7 L55,18"
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.4"
+        android:strokeAlpha="0.6" />
+    <path
+        android:pathData="M32,7 L9,18"
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.2"
+        android:strokeAlpha="0.35" />
+</vector>

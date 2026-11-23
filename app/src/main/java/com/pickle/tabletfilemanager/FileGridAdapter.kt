@@ -1,16 +1,18 @@
 package com.pickle.tabletfilemanager
 
-import android.content.res.Resources
 import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Grid of large file cards. Selection state lives here and is read back by the activity.
+ *
+ * Each card shows a Windows Explorer style vector icon, the file name, a small extension
+ * pill and a meta line, so the type is recognisable at a glance even on a large tablet.
  */
 class FileGridAdapter(
     private val onClick: (FileItem) -> Unit,
@@ -51,10 +53,20 @@ class FileGridAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = items[position]
+
+        holder.icon.setImageResource(FileKinds.iconResOf(item))
+
+        val extensionLabel = FileKinds.labelOf(item)
+        if (item.isDir || extensionLabel == "FILE") {
+            holder.pill.visibility = View.GONE
+        } else {
+            holder.pill.visibility = View.VISIBLE
+            holder.pill.text = extensionLabel
+            holder.pill.setTextColor(FileKinds.colorOf(item))
+        }
+
         holder.name.text = item.name
         holder.meta.text = metaText(item)
-        holder.badge.text = FileKinds.labelOf(item)
-        holder.badge.background = badgeDrawable(FileKinds.colorOf(item))
 
         val isSelected = selected.contains(item.path)
         holder.card.isSelected = isSelected
@@ -81,18 +93,10 @@ class FileGridAdapter(
         }
     }
 
-    private fun badgeDrawable(color: Int): GradientDrawable {
-        val density = Resources.getSystem().displayMetrics.density
-        return GradientDrawable().apply {
-            shape = GradientDrawable.RECTANGLE
-            cornerRadius = 20f * density
-            setColor(color)
-        }
-    }
-
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val card: View = view.findViewById(R.id.cardRoot)
-        val badge: TextView = view.findViewById(R.id.badge)
+        val icon: ImageView = view.findViewById(R.id.fileIcon)
+        val pill: TextView = view.findViewById(R.id.extPill)
         val name: TextView = view.findViewById(R.id.fileName)
         val meta: TextView = view.findViewById(R.id.fileMeta)
         val check: TextView = view.findViewById(R.id.checkBox)

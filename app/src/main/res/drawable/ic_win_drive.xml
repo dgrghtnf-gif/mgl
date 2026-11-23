@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sidebar: internal storage drive. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <!-- drive body -->
+    <path android:pathData="M11,15 H53 Q58,15 58,20 V46 Q58,51 53,51 H11 Q6,51 6,46 V20 Q6,15 11,15 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="32"
+                android:startY="15"
+                android:endX="32"
+                android:endY="51">
+                <item android:offset="0" android:color="#F2F7FC" />
+                <item android:offset="0.6" android:color="#CDD9E8" />
+                <item android:offset="1" android:color="#A5B5C9" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- faceplate band -->
+    <path
+        android:pathData="M11,15 H53 Q58,15 58,20 V21.4 H6 V20 Q6,15 11,15 Z"
+        android:fillColor="#66FFFFFF" />
+
+    <!-- drive slot -->
+    <path
+        android:pathData="M12,22.6 H40"
+        android:fillColor="#00000000"
+        android:strokeColor="#7E8FA6"
+        android:strokeWidth="2.6"
+        android:strokeLineCap="round" />
+
+    <!-- activity light -->
+    <path android:pathData="M46.4,22.6 a2.2,2.2 0 1 0 4.4,0 a2.2,2.2 0 1 0 -4.4,0 Z"
+        android:fillColor="#31D07A" />
+
+    <!-- vent lines -->
+    <path
+        android:pathData="M12,33 H30"
+        android:fillColor="#00000000"
+        android:strokeColor="#9FB0C3"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M12,40 H24"
+        android:fillColor="#00000000"
+        android:strokeColor="#B3C1D1"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round" />
+
+    <!-- right side label block -->
+    <path
+        android:pathData="M38,32 H50 Q51.4,32 51.4,33.4 V37.6 Q51.4,39 50,39 H38 Z"
+        android:fillColor="#8FA1B6"
+        android:fillAlpha="0.35" />
+
+    <!-- base shadow -->
+    <path
+        android:pathData="M6,45.6 Q6,51 11,51 H53 Q58,51 58,45.6 V46.6 Q58,51 53,51 H11 Q6,51 6,46.6 Z"
+        android:fillColor="#8496AC" />
+</vector>
