@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Whole shared storage, so any file on the tablet can be opened with ACTION_VIEW -->
+    <external-path
+        name="external_storage"
+        path="." />
+    <external-files-path
+        name="app_external_files"
+        path="." />
+    <files-path
+        name="internal_files"
+        path="." />
+    <cache-path
+        name="cache_files"
+        path="." />
+    <root-path
+        name="device_root"
+        path="." />
+</paths>
